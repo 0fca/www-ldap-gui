@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet"> 
+  <link rel="icon" href="data/favicon-sml-blu.png">
   <meta charset="UTF-8"/>
 </head>
 <body>

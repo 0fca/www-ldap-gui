@@ -21,9 +21,10 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet"> 
+    <link rel="icon" href="data/favicon-sml-blu.png">
 </head>
     
-    <form action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
+    <form method="get">
         <header>
             <div id="navbar">
             <nav class="navigation">
@@ -38,7 +39,10 @@
                         <button class="navbutton" type="submit" name="view" value="index">Zmień hasło</button>
                     </li>
                     <li>
-                        <button class="navbutton" type="submit" name="view" value="userListView">Lista</button>
+                        <button class="navbutton" type="submit" name="view" value="userListView">Zarządzaj użyszkodnikami</button>
+                    </li>
+                    <li>
+                        <button class="navbutton" type="submit" name="view" value="groupListView">Zarządzaj grupami</button>
                     </li>
                 </ul>
             </nav>
@@ -49,10 +53,16 @@
         
         <?php
             $userid = decodeUrl("userid");
+            $mode = decodeUrl("mode");
+
             $filename = $_GET["view"].".php";
             if($userid != NULL){
                 $_SESSION['userid'] = $userid;
             }
+
+            if($mode != NULL){
+                $_SESSION['mode'] = $mode;
+            }    
 
             if(file_exists($filename)){
                 include($filename);

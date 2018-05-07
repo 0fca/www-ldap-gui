@@ -42,7 +42,6 @@
                     </thead>
                     <tbody>
                         <caption>Lista użyszkodników dostępnych na serwerze LDAP</caption>
-                        
             <?php
                 
                 $users = getUsers();
@@ -59,8 +58,8 @@
                         $userArray[$display] = $userData;
                         
                         echo "<td>$display</td>
-                        <td><button type='submit' formaction='admin.php?view=editUserView&userid=$i' name='$i' class='standardbutton'>Edytuj</button>
-                        <button class='standardbutton' formaction='/admin.php?view=deleteUserView'>Usuń</button></td>"."\n";
+                        <td><button type='submit' formaction='admin.php?view=editUserView&userid=$i&mode=edit' name='$i' class='standardbutton'>Edytuj</button>  |
+                        <button class='standardbutton' formaction='/admin.php?view=deleteUserView&userid=$i'>Usuń</button></td>"."\n";
 
                         $s = serialize($userArray[$display]);
                         file_put_contents($i, $s);
@@ -72,7 +71,7 @@
                     echo viewMessage(UserListController::getMessage());
                     echo "</tr>";
                     echo "<tr>";
-                    echo "<a href='/admin.php?view=editUserView'>Dodaj nowego</a>";
+                    echo "<a href='/admin.php?view=editUserView&mode=add'>Dodaj nowego</a>";
                     echo "</tr>";
                 }
             ?>

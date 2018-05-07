@@ -13,11 +13,9 @@ $dn = dn;
 if ($user == adm_name)
     $ldaprdn  = "cn=$user,".dc;     // ldap rdn or dn
 else{
-    $ldaprdn  = "sn=$user,".dn;
+    $ldaprdn  = "cn=$user,".dn;
 }
   
-#$user = $user . "@615SQN.DK";
-
   error_reporting(0);
   ldap_connect(serv_name);
   
@@ -25,12 +23,6 @@ else{
 
   ldap_set_option($con, LDAP_OPT_PROTOCOL_VERSION, 3);
 
-
- // $findWhat = array("sAMAccountName", "cn");
- // $findWhere = $dn;
- // $findFilter = "(|(cn=$user*))";
-
-  #bind anon and find user by uid
   $sr = ldap_search($con,$dn,"(sn=*)");
   $records = ldap_get_entries($con, $sr);
 
@@ -75,8 +67,8 @@ else{
   
   /* change the password finally */
   $entry = array();
-  $entry["userPassword"] = "{MD5}".EditHelper::hashPassword($newPassword);
-  echo $entry["userPassword"];
+  $entry["userPassword"] = EditHelper::hashPassword($newPassword);
+  //echo $entry["userPassword"];
 
   if (ldap_modify($con,$ldaprdn,$entry) === false){
     $message[] = E200;

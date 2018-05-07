@@ -86,5 +86,5 @@
       margin: 0 auto;
     }
     td,th{
-      align-content: flex-start;
+      text-align: center;
     }

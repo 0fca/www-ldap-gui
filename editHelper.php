@@ -2,7 +2,7 @@
     include_once('constants.php');
     final class EditHelper{
         static public function hashPassword($sequence){
-            return base64_encode( pack( "H*", md5( $newPassword ) ) );
+            return "{SHA}" . base64_encode(pack("H*", sha1($sequence)));
             //return hash(hashAlgo1, $sequence);
         }
     }
