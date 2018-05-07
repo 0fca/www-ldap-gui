@@ -26,5 +26,7 @@ Most of mentioned features are not implemented at the moment right now.
 
 # Images - a quick glance
 ![Welcome page of an admin panel](https://i.imgur.com/xYGt80l.png)
-![Password change view](https://i.imgur.com/WBTxhU4.png)
-![List of users view](https://i.imgur.com/WBTxhU4.png)
+![Password change view](https://i.imgur.com/4Rkvssl.png)
+![List of users view](https://i.imgur.com/e1NQeCf.png)
+![Delete user view](https://i.imgur.com/K3C5bx3.png)
+![Edit user data view](https://i.imgur.com/IeGwJpN.png)
