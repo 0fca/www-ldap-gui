@@ -1,6 +1,6 @@
 <?php
 $message = array();             
-include_once('errors.php');
+include_once('messages.php');
 include_once('constants.php');
 include_once('editHelper.php');
 
@@ -79,6 +79,6 @@ else{
     //mail($records[0]["mail"][0],"Password change notice : ".$user,"Your password has just been changed."); 
   } 
 }  
-include('changePassView.php');
+include('views/changePassView.php');
 ?>
 

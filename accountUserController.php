@@ -1,6 +1,6 @@
 <?php
     include_once('constants.php');
-    include_once('errors.php');
+    include_once('messages.php');
 
     final class AccountUserController{
         static $con = NULL;
@@ -21,21 +21,21 @@
             $info['mail'] = $model->getMail();
             $res = ldap_add(self::$con, "cn=".$model->getCn().",".dn, $info);
             self::closeConnection();
-            $message = $res ? A0 : A200;
+            $message = $res ? A0 : '<p class="errMsg">'.A200.'</p>';
             return $message;
         }
 
+        //Deletes user from the server
         static public function deleteUser($deleteModel){
             $message = "Coś się zjebało w trakcie łączenia.";
             self::prepareConnection();
             $dn = "cn=".$deleteModel->getCn().",".dn;
             $res = ldap_delete(self::$con, $dn);
             self::closeConnection();
-            $message = $res ? D0 : D200;
+            $message = $res ? D0 : '<p class="errMsg">'.D200.'</p>';
             return $message;
         }
 
-        //Well, sth is pretty fucked up with hashing algorithms, cant sort out what?
         //This should edit data of the user.
         static public function editUserData($userModel){
             self::prepareConnection();
@@ -50,7 +50,7 @@
             $attributes['mail'] = $userModel->getMail();
 
             $res = ldap_modify(self::$con, "cn=".$userModel->getCn().",".dn, $attributes);              
-            $message = $res ? ED0 : ED200;
+            $message = $res ? ED0 : '<p class="errMsg">'.ED200.'</p>';
 
             self::closeConnection();
             return $message;

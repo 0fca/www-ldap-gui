@@ -28,15 +28,12 @@
         <header>
             <div id="navbar">
             <nav class="navigation">
-                <a href="https://pl.wikipedia.org/wiki/Szczekuszka_ameryka%C5%84ska" target="_blank">
+                <button class="navbutton" type="submit">
                     <img src="/data/logooftheyear2018.png"/>
-                </a>
+                </button>
                 <ul class="navigation__list">
                     <li>
-                        <button class="navbutton" type="submit">Główna</button>
-                    </li>
-                    <li>
-                        <button class="navbutton" type="submit" name="view" value="index">Zmień hasło</button>
+                        <button class="navbutton" type="submit" name="view" value="changePassView">Zmień hasło</button>
                     </li>
                     <li>
                         <button class="navbutton" type="submit" name="view" value="userListView">Zarządzaj użyszkodnikami</button>
@@ -50,12 +47,11 @@
         </header>
     </form>
     <body>
-        
         <?php
             $userid = decodeUrl("userid");
             $mode = decodeUrl("mode");
 
-            $filename = $_GET["view"].".php";
+            $filename = 'views/'.$_GET["view"].".php";
             if($userid != NULL){
                 $_SESSION['userid'] = $userid;
             }
@@ -68,9 +64,9 @@
                 include($filename);
             }else{
                 if($_GET["view"] == NULL){
-                    include("admin.content.html");
+                    include("views/admin.content.html");
                 }else{
-                    $filename =  $_GET["view"].".html";
+                    $filename = 'views/'.$_GET["view"].".html";
                     include($filename);
                 }
             }    

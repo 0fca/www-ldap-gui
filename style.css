@@ -1,10 +1,10 @@
 
  body { font-family: 'Roboto','Oxygen', sans-serif; font-size: 0.9em;  }
- input:focus { background-color: #eee; border-color: navy; }
+ input:focus { background-color: #eee; border-color: #095C9E; }
  th { text-align: right; padding: 0.8em; }
  .container { text-align: center; width: 90%; margin: 5% auto; align-content: center;} 
  ul { text-align: center; list-style-type: none; } 
- .msg { width: 50%; margin: 0 auto; text-align: center; color: "#095C9E";  border-top: 1px solid navy;  border-bottom: 1px solid navy;  } 
+ .msg { width: 50%; margin: 0 auto; text-align: center; color: #095C9E;  border-top: 1px solid navy;  border-bottom: 1px solid navy;  } 
   .navigation__list {
     list-style-type:none;
     display:flex;
@@ -14,7 +14,6 @@
 
    #navbar{
       width: inherit;
-      color: red;
       background: #095C9E;
       justify-content: flex-start;
       align-items: flex-start;
@@ -87,4 +86,14 @@
     }
     td,th{
       text-align: center;
+    }
+    .errMsg{
+      color: red;
+    }
+    textarea {
+      resize: none;
+    }
+
+    textarea:focus{
+      border-color: #095C9E; 
     }

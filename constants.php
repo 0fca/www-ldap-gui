@@ -5,4 +5,5 @@
     define("dn", "ou=Infinite,ou=people,dc=obsidiam,dc=debian");
     define("dc","dc=obsidiam,dc=debian");
     define("hashAlgo1","sha1");
+    define("gdn","ou=group,dc=obsidiam,dc=debian");
 ?>
