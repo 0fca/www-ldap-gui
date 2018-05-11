@@ -14,6 +14,7 @@
                 $this->mail = $mail;
         }
 
+
         public function getUserName(){
             return $this->userName;
         }

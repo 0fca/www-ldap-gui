@@ -1,2 +1,0 @@
-<?php?>
-Delete user view.
