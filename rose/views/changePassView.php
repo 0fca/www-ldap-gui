@@ -1,5 +1,5 @@
 <?php
-  include_once('constants.php');
+  //include_once('constants.php');
   include_once('accountUserController.php');
 
 ?>
@@ -7,7 +7,7 @@
 <html>
         <head>
             <meta charset="UTF-8"/>
-            <link rel="stylesheet" type="text/css" href="style.css">
+            <link rel="stylesheet" type="text/css" href="/rose/style.css">
             <link rel="icon" href="data/favicon-sml-blu.png">
         </head>
         <body>

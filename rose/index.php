@@ -1,4 +1,5 @@
 <?php
+    error_reporting(0);
     include_once('constants.php');
     include_once('accountUserController.php');
     session_start();
@@ -42,6 +43,9 @@
                     </li>
                     <li>
                         <button class="navbutton" type="submit" name="view" value="groupListView">Zarządzaj grupami</button>
+                    </li>
+                    <li>
+                        <button class="navbutton" type="submit" name="view" value="aboutView">O aplikacji</button>
                     </li>
                 </ul>
             </nav>
