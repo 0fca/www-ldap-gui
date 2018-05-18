@@ -3,11 +3,15 @@
  input:focus { background-color: #eee; border-color: #095C9E; }
  th { text-align: right; padding: 0.8em; }
  .container { text-align: center; width: 90%; margin: 5% auto; align-content: center;} 
+<<<<<<< HEAD:rose/style.css
  ul { 
    text-align: justify; 
    list-style-type: none;
    padding: 5px 20px 5px 0;
   } 
+=======
+ ul { text-align: center; list-style-type: none; } 
+>>>>>>> master:style.css
  .msg { width: 50%; margin: 0 auto; text-align: center; color: #095C9E;  border-top: 1px solid navy;  border-bottom: 1px solid navy;  } 
   .navigation__list {
     list-style-type:none;
@@ -103,6 +107,7 @@
     }
     td,th{
       text-align: center;
+<<<<<<< HEAD:rose/style.css
       color: rgb(12,12,12);
     }
 
@@ -114,6 +119,9 @@
       background-color: #9dc3e0;
     }
 
+=======
+    }
+>>>>>>> master:style.css
     .errMsg{
       color: red;
     }
@@ -123,9 +131,12 @@
 
     textarea:focus{
       border-color: #095C9E; 
+<<<<<<< HEAD:rose/style.css
     }
 
     .clickableParagraph{
       cursor: pointer;
       color: rgb(12,12,12);
+=======
+>>>>>>> master:style.css
     }
