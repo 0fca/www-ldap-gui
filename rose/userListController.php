@@ -1,9 +1,5 @@
 <?php 
-<<<<<<< HEAD
-     include_once('constants.php');
-=======
      include_once('/constants.php');
->>>>>>> master
      include_once('models/userModel.php');
      include_once('accountUserController.php');
      include_once('exceptions.php');
