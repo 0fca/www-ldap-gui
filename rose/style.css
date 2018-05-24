@@ -105,7 +105,7 @@
     }
     td,th{
       text-align: center;
-<<<<<<< HEAD:rose/style.css
+
       color: rgb(12,12,12);
     }
 
@@ -117,9 +117,9 @@
       background-color: #9dc3e0;
     }
 
-=======
+
     }
->>>>>>> master:style.css
+
     .errMsg{
       color: red;
     }
@@ -129,12 +129,11 @@
 
     textarea:focus{
       border-color: #095C9E; 
-<<<<<<< HEAD:rose/style.css
+
     }
 
     .clickableParagraph{
       cursor: pointer;
       color: rgb(12,12,12);
-=======
->>>>>>> master:style.css
+
     }
