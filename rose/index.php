@@ -32,16 +32,9 @@
             <nav class="navigation">
                 <button class="navbutton" type="submit">
                     <img src="data/logooftheyear2018.png" />
-                    <li>
-                        <button class="navbutton" type="submit" name="view" value="userListView">Zarządzaj użyszkodnikami</button>
-                    </li>
-                    <li>
-                        <button class="navbutton" type="submit" name="view" value="groupListView">Zarządzaj grupami</button>
-                    </li>
-                    <li>
-                        <button class="navbutton" type="submit" name="view" value="aboutView">O aplikacji</button>
-                    </li>
-                </ul>
+                    <button class="navbutton" type="submit" name="view" value="userListView">Zarządzaj użyszkodnikami</button>
+                    <button class="navbutton" type="submit" name="view" value="groupListView">Zarządzaj grupami</button>
+                    <button class="navbutton" type="submit" name="view" value="aboutView">O aplikacji</button>
             </nav>
             </div>
         </header>
