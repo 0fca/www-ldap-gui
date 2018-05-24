@@ -31,11 +31,7 @@
             <div id="navbar">
             <nav class="navigation">
                 <button class="navbutton" type="submit">
-                    <img src="data/logooftheyear2018.png"/>
-
-                    <img src="/data/logooftheyear2018.png"/>
-                    <li>
-                    </li>
+                    <img src="data/logooftheyear2018.png" />
                     <li>
                         <button class="navbutton" type="submit" name="view" value="userListView">Zarządzaj użyszkodnikami</button>
                     </li>
@@ -44,7 +40,6 @@
                     </li>
                     <li>
                         <button class="navbutton" type="submit" name="view" value="aboutView">O aplikacji</button>
-
                     </li>
                 </ul>
             </nav>
