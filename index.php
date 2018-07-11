@@ -7,5 +7,3 @@ include_once('rose/models/userModel.php');
 
 include('rose/views/changePassView.php');
 ?>
-
-

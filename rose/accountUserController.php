@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
     include_once('constants.php');
+=======
+    include_once('/constants.php');
+>>>>>>> 4fe1b298cc9e27c28c576c60d67da566b556a4fc
     include_once('messages.php');
     include_once('userListController.php');
     include_once('editHelper.php');
