@@ -2,7 +2,7 @@
  body { font-family: 'Roboto','Oxygen', sans-serif; font-size: 0.9em;  }
  input:focus { background-color: #eee; border-color: #095C9E; }
  th { text-align: right; padding: 0.8em; }
- .container { text-align: center; width: 90%; margin: 5% auto; align-content: center;} 
+ .container { text-align: center; width: 90%; margin: 8% auto; align-content: center;} 
  ul { 
    text-align: justify; 
    list-style-type: none;
