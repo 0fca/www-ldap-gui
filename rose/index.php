@@ -1,8 +1,6 @@
 <?php
     include_once("authController.php");
     $isAuthorized = $_COOKIE["userHash"] != $_SESSION["userHash"];
-        
-    
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +23,7 @@
                 <button class="navbutton" type="submit">
                     <img src="data/logooftheyear2018.png"/>
                 </button>
+                
                 <ul class="navigation__list">
                     <li>
                         <button class="navbutton" type="submit" name="view" value="changePassView">Zmień hasło</button>
@@ -57,5 +56,8 @@
 
         Router::route($_GET['view']);
     ?>
+    <footer>
+        Rose - Panel administracyjny serwera LDAP                     
+    </footer>
     </body>
 </html>

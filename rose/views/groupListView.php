@@ -37,15 +37,10 @@
                             </th>
                         </tr>
                     </thead>
-<<<<<<< HEAD
                     
                     <tbody>
                         <caption>Lista grup dostępnych na serwerze LDAP</caption>
 
-=======
-                    <tbody>
-                        <caption>Lista grup dostępnych na serwerze LDAP</caption>
->>>>>>> 4fe1b298cc9e27c28c576c60d67da566b556a4fc
             <?php
                 
                 $groups = $glv->getGroups();
@@ -80,7 +75,6 @@
             </table>
             </div>
 </form>
-<<<<<<< HEAD
 <script>
     document.getElementById("searchinput").addEventListener("keydown",function(e){
         if(e.keyCode == 8){
@@ -89,6 +83,3 @@
         }
     });
 </script> 
-=======
-
->>>>>>> 4fe1b298cc9e27c28c576c60d67da566b556a4fc
