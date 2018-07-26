@@ -30,7 +30,22 @@
             if(!empty($this->model->getUserList())){ 
                 $out = "";
                 foreach($this->model->getUserList() as $user){
-                    $out .= (ldap_explode_dn($user,5)[0]."\n");
+                    $name = ldap_explode_dn($user,5)[0];
+                    if($name != NULL){
+                        $out .= ($name."\n");
+                    }
+                }
+                return $out;
+            }
+        }
+
+        public function getDeleteUserList(){
+            if(!empty($this->model->getUserList())){ 
+                $out = "";
+                foreach($this->model->getUserList() as $user){
+                    $name = (ldap_explode_dn($user,5)[0]);
+                    $str_name = "\"" . $name . "\"";
+                    $out .=  "<p id='$name'>" . $name . "</p>" . " <p class='clickableParagraph' onclick='deleteUserFromList($str_name, this);'>Usuń</p>";
                 }
                 return $out;
             }else{ 
@@ -49,7 +64,7 @@
     }
 
     if($_COOKIE["userHash"] != $_SESSION["userHash"]){
-        Router::redirect("/rose?view");
+        Router::redirect("/?view");
     }
 ?>
 
@@ -64,14 +79,15 @@
                 <input list="users" id="userChoice" name="userChoice" autocomplete="off" size="25"/>
                 <span>
                     <p class="clickableParagraph" onclick="OnAddUserActionHandler();">Dodaj</p>
-                    <p class='clickableParagraph' onclick='OnDeleteUserActionHandler();'>Usuń</p>
                 </span>
         </td>
     </tr>   
     <tr>
         <th>Członkowie:</th>
         <td>
-            <textarea id="usersToAdd" name="userstoadd" rows="4" cols="25" readonly><?php echo $editView->printUsers()?></textarea>
+            <div id="deleteListContainer">
+                <?php echo $editView->getDeleteUserList();?>
+            </div>
         </td>
     </tr>
     <tr>
@@ -92,8 +108,8 @@
                 $i = 0;
                 foreach($users as $user){
                     //echo var_dump($members);
-                    if(!in_array('cn='.$user->getCn().','.dn, $members, false)){
-                        $resultArray[$i] = ldap_explode_dn('cn='.$user->getCn().','.dn, 5)[0];
+                    if(!in_array('sn='.$user->getSn().','.dn, $members, false)){
+                        $resultArray[$i] = ldap_explode_dn('sn='.$user->getSn().','.dn, 5)[0];
                         $i++;
                     } 
                 }
@@ -103,19 +119,20 @@
                 }
             }else{
                 foreach($users as $user){
-                    $name = $user->getCn();
+                    $name = $user->getSn();
                     echo "<option value='$name'>\n";
                 }
             }
             ?>
     </datalist> 
+    <textarea id="usersToAdd" name="userstoadd" rows="4" cols="25" readonly hidden><?php echo $editView->printUsers();?></textarea>
 </form>
-            
+      
 </div>
 <div class ="msg">
     <?php
         if(isset($_POST["submitted"])){
-                if(!empty($_POST['ou']) && !empty($_POST['description']) && !empty($_POST['userstoadd'])){
+                if(!empty($_POST['ou']) && !empty($_POST['description'])){
                     $preparedStr = str_replace("\n",",",trim($_POST['userstoadd']));
                     $cns = explode(',',$preparedStr);
                     $userArray = array();
@@ -124,18 +141,16 @@
                         $userArray[$i] = "sn=".$cn.','.dn;
                         $i++;
                     }
-
-                    $newModel = new GroupModel($_POST['ou'], $_POST['description'],$userArray);
                     if($mode == "edit"){
-                        echo GroupController::editGroup($model,$newModel);
+                        $newModel = new GroupModel($_POST['ou'], $_POST['description'],$userArray);
+                        echo GroupController::editGroup($model, $newModel);
                     }else{
-                        echo GroupController::addGroup($newModel);
+                        $model = new GroupModel($_POST["ou"], $_POST["description"], $userArray);
+                        echo GroupController::addGroup($model);
                     }
-                    
                 }else{
                     echo '<p class="errMsg">'.I100.'</p>';
                 }
-                echo "<p><a href='index.php?view=groupListView'>Wróć</a></p>";
         }
     ?>
 </div>

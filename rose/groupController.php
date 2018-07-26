@@ -74,7 +74,7 @@ include_once('models/userModel.php');
         static public function editGroup($oldModel, $model){
             self::prepareConnection();
             $entry = self::prepareEntries($model);
-            $retVal = ldap_mod_replace(self::$ldap_connection, 'ou='.$oldModel->getName().','.gdn, $entry) ? A101: '<p class="errMsg">'.A400.'</p>';
+            $retVal = ldap_mod_replace(self::$ldap_connection, 'ou='.$oldModel->getName().','.gdn, $entry) ? A101: '<p class="errMsg">'.A401.'</p>';
             self::closeConnection();
             return $retVal;
         }

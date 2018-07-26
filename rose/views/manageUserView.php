@@ -49,10 +49,10 @@
     <?php
         if(isset($_POST["submitted"])){
             if(!empty($_POST['username']) && !empty($_POST['cn'] && !empty($_POST['cn']) && $_POST['mail'])){
-                $hashed = EditHelper::hashPassword($_POST['newPassword']);
-                $newModel = new UserModel($_POST['username'], $hashed, $_POST['cn'], $_POST['cn'], $_POST['mail']);
+                $newModel = new UserModel($_POST['username'], $_POST['newPassword'], $_POST['cn'], $_POST['cn'], $_POST['mail']);
 
                 if($mode == "edit"){
+                    $hashed = EditHelper::hashPassword($_POST['newPassword']);
                     if($model->getPasswordHash() != $hashed){
                         $newModel->setPassHash($hashed);
                     }
@@ -60,10 +60,11 @@
                 }else{
                     echo AccountUserController::addUser($newModel);
                 }
+                Router::redirect("/?view=groupListView");
             }else{
                 echo '<p class="errMsg">'.I100.'</p>';
             }
-            echo "<p><a href='index.php?view=userListView'>Wróć</a></p>";
+            
         }
     ?>
 </div>

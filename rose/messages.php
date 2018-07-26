@@ -16,11 +16,12 @@
     define("A0","Pomyślnie dodano użyszkodnika.");
     define("A200","Błąd A200 - Nie można dodać użyszkodnika.");
     define("A400","Błąd A400 - Nie udało się dodać grupy do serwera LDAP.");
-    define("A401","Błąd A400 - Nie udało się wyedytować grupy do serwera LDAP.");
+    define("A401","Błąd A401 - Nie udało się wyedytować grupy do serwera LDAP.");
     define("A100","Pomyślnie dodano grupę do serwera LDAP.");
     define("A101","Pomyślnie wyedytowano grupę do serwera LDAP.");
     define("L0","Pomyślnie zalogowano do panelu administracyjnego.");
     define("L100","Błąd L100 - Niepoprawne dane logowania.");
+    define("L1","Bład L1 - Błąd logowania; brak dostępu.");
 
     define("I100","I100 - Żadne pole nie może być puste!");
     define("I-1","I-1 - Błąd krytyczny.");

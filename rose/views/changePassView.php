@@ -3,14 +3,7 @@
   include_once('accountUserController.php');
 
 ?>
-<!DOCTYPE html>
-<html>
-        <head>
-            <meta charset="UTF-8"/>
-            <link rel="stylesheet" type="text/css" href="style.css">
-            <link rel="icon" href="data/favicon-sml-blu.png">
-        </head>
-        <body>
+
 <div class="container">
 <form name="passwordChange" method="post">
   <table>
@@ -35,7 +28,6 @@
             } 
           ?>
           </div>
-          <p><a href="rose/data/psi.pdf" target="_blank">Konfiguracja drugiego konta PSI</a><br/><p>
+          <p><a href="data/psi.pdf" target="_blank">Konfiguracja drugiego konta PSI</a><br/><p>
 <!--<a href="/data/logins.pdf" target="okno">Lista loginów</a><br/>-->
-        </body>
-</html>
+          </div>

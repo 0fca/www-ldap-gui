@@ -6,5 +6,5 @@
     define("dc","dc=infinite,dc=pl");
     define("hashAlgo1","sha1");
     define("gdn","ou=group,dc=infinite,dc=pl");
-    define("cookie_xpire", NULL);
+    define("cookie_xpire", 600);
 ?>

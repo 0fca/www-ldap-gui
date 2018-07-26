@@ -10,7 +10,7 @@
     if($systemUser !== NULL){
       $systemUser = NULL;
       setcookie('userHash', NULL);
-      Router::redirect('/rose');
+      Router::redirect('/');
     }
 ?>
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
                   setcookie("userHash", $userHash);
                 }
                 
-                Router::redirect("/rose?view=userListView");
+                Router::redirect("?view=userListView");
               }else{
                 echo "<p style='color: red;'>".$result["message"]."</p>"; 
               }

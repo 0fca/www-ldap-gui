@@ -1,46 +1,30 @@
 function OnAddUserActionHandler(){
-    let name = document.getElementById("userChoice").value;
-    let text = document.getElementById("usersToAdd").value;
+    let name = document.getElementById("userChoice");
+    let deleteContainer = document.getElementById("deleteListContainer");
+    let firstP = document.createElement('p');
+    let secondP = document.createElement('p');
+    firstP.textContent = name.value;
+    secondP.textContent = "Usuń";
+    firstP.setAttribute("id", name.value);
+    secondP.setAttribute("class","clickableParagraph");
+    secondP.setAttribute("onclick","deleteUserFromList('"+name.value+"',this);");
 
-    if(text.indexOf("Brak użyszkodników") >= 0){
-        document.getElementById("usersToAdd").value = null;
-    }
+    deleteContainer.appendChild(firstP);
+    deleteContainer.appendChild(secondP);
 
-    if(!(text.indexOf(name) >= 0) && name !== null){
-        document.getElementById("usersToAdd").value += name+"\n";
-    }
-    let list = document.getElementById("users").innerHTML;
-    document.getElementById("users").innerHTML = null;
-    let spl = list.split("\n");
-    let resStr = "";
-    spl.forEach(element =>{
-        if(!element.includes(name)){
-            resStr += element;
-            console.log(element);
+    let dataArea = document.getElementById("usersToAdd");
+    dataArea.textContent += name.value+"\n";
+
+    let options = document.getElementById("users").childNodes;
+    
+    options.forEach(option => {
+        //console.log(option.value != null);
+        if(option.value != null){
+            if(name.value.includes(option.value)){
+                document.getElementById("users").removeChild(option);
+            } 
         }
     });
-    
-    document.getElementById("users").innerHTML += resStr;
-    document.getElementById("userChoice").value = null;
-}
-
-function OnDeleteUserActionHandler(){
-    let name = document.getElementById("userChoice").value;
-    let text = document.getElementById("usersToAdd").value;
-
-    if(text.indexOf(name) >= 0 && name !== ""){
-        document.getElementById("usersToAdd").value = null;
-        let repl = text.replace("\n",",");
-        let ar = repl.split(",");
-        ar.forEach(element => {
-            if(!element.trim().includes(name.trim())){
-                document.getElementById("usersToAdd").value += element+"\n";
-            }
-        });
-        document.getElementById("users").innerHTML += "<option value='"+name+"'>";
-    }
-
-    document.getElementById("userChoice").value = null;
 }
 
 function filter(){
@@ -62,4 +46,22 @@ function resetFilter(){
     for(let i = 0; i < fileList.children.length; i++){
         fileList.children[i].removeAttribute("hidden", false);  
     }
+}
+
+function deleteUserFromList(name, element){
+    let userList = document.getElementById("usersToAdd");
+    let listContent = userList.value.split("\n");
+    let result = "";
+
+    listContent.forEach(line => {
+        if(!line.includes(name)){
+            result += line+"\n";
+        }
+    });
+    document.getElementById("deleteListContainer").removeChild(element);
+    document.getElementById("deleteListContainer").removeChild(document.getElementById(name));
+    document.getElementById("usersToAdd").textContent = result;
+    let option = document.createElement("option");
+    option.setAttribute("value", name);
+    document.getElementById("users").appendChild(option);
 }

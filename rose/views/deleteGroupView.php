@@ -19,6 +19,7 @@
         Router::redirect("/rose?view");
     }
 ?>
+<div class="container">
 <form method="post">
  <table>
     <caption><strong><p>Czy na pewno chcesz usunąć grupę o identyfikatorze <?php echo $deleteModel->getName();?>?</p></strong></caption>
@@ -35,4 +36,5 @@
     ?>   
 </div>
 </form>
+</div>
 

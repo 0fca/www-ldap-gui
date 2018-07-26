@@ -20,7 +20,7 @@
     }
     $glv = new GroupListView();
     if($_COOKIE["userHash"] != $_SESSION["userHash"]){
-        Router::redirect("/rose?view");
+        Router::redirect("/?view");
     }
 ?>
 <form action="<?php print $_SERVER['PHP_SELF']; ?>" name="groupListForm" method="post">

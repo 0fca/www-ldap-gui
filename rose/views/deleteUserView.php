@@ -21,6 +21,7 @@
         Router::redirect("/rose?view");
     }
 ?>
+<div class="container">
 <form method="post">
  <table>
     <caption><strong><p>Czy na pewno chcesz usunąć użytkownika o loginie <?php echo $deleteModel->getUserName();?>?</p></strong></caption>
@@ -37,3 +38,4 @@
     ?>   
 </div>
 </form>
+</div>
