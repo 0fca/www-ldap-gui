@@ -44,8 +44,10 @@
                 $out = "";
                 foreach($this->model->getUserList() as $user){
                     $name = (ldap_explode_dn($user,5)[0]);
-                    $str_name = "\"" . $name . "\"";
-                    $out .=  "<p id='$name'>" . $name . "</p>" . " <p class='clickableParagraph' onclick='deleteUserFromList($str_name, this);'>Usuń</p>";
+                    if($name !== NULL && $name !== ""){
+                        $str_name = "\"" . $name . "\"";
+                        $out .=  "<p id='$name'>" . $name . "</p>" . " <p class='clickableParagraph' onclick='deleteUserFromList($str_name, this);'>Usuń</p>";
+                    }
                 }
                 return $out;
             }else{ 
@@ -64,7 +66,8 @@
     }
 
     if($_COOKIE["userHash"] != $_SESSION["userHash"]){
-        Router::redirect("/?view");
+        $_SESSION["returnUrl"] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        Router::redirect("/?view=LoginView");
     }
 ?>
 
@@ -142,12 +145,13 @@
                         $i++;
                     }
                     if($mode == "edit"){
-                        $newModel = new GroupModel($_POST['ou'], $_POST['description'],$userArray);
+                        $newModel = new GroupModel($_POST['ou'], $_POST['description'], $userArray);
                         echo GroupController::editGroup($model, $newModel);
                     }else{
                         $model = new GroupModel($_POST["ou"], $_POST["description"], $userArray);
                         echo GroupController::addGroup($model);
                     }
+                    //Router::redirect("/?view=groupListView");
                 }else{
                     echo '<p class="errMsg">'.I100.'</p>';
                 }

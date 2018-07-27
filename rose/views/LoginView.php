@@ -55,8 +55,8 @@
                 }else{
                   setcookie("userHash", $userHash);
                 }
-                
-                Router::redirect("?view=userListView");
+                var_dump($_SESSION["returnUrl"]);
+                Router::redirect($_SESSION["returnUrl"]);
               }else{
                 echo "<p style='color: red;'>".$result["message"]."</p>"; 
               }

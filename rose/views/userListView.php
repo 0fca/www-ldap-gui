@@ -15,7 +15,8 @@
     }
 
     if($_COOKIE["userHash"] != $_SESSION["userHash"]){
-        Router::redirect("/rose?view");
+        $_SESSION["returnUrl"] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        Router::redirect("/?view=LoginView");
     }
 ?>
 <form action="<?php print $_SERVER['PHP_SELF']; ?>" name="listForm" method="post">
@@ -75,7 +76,7 @@
 <script>
     document.getElementById("searchinput").addEventListener("keydown",function(e){
         if(e.keyCode == 8){
-            console.log(e.keyCode);
+            //console.log(e.keyCode);
             filter();
         }
     });

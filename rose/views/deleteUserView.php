@@ -18,7 +18,8 @@
     $deleteView = new DeleteUserView();
     $deleteModel = $deleteView->getModel();
     if($_COOKIE["userHash"] != $_SESSION["userHash"]){
-        Router::redirect("/rose?view");
+        $_SESSION["returnUrl"] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        Router::redirect("/?view=LoginView");
     }
 ?>
 <div class="container">

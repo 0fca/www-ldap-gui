@@ -18,7 +18,6 @@ function OnAddUserActionHandler(){
     let options = document.getElementById("users").childNodes;
     
     options.forEach(option => {
-        //console.log(option.value != null);
         if(option.value != null){
             if(name.value.includes(option.value)){
                 document.getElementById("users").removeChild(option);
