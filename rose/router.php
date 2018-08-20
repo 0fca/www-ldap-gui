@@ -60,6 +60,9 @@
                         if(file_exists($filename)){
                             return $filename;
                         }else{
+                            if(date('j', time()) === '20'){
+                                self::redirect("https://en.wikipedia.org/wiki/Pika");
+                            }
                             return "views/error/404.html";
                         }
                     }

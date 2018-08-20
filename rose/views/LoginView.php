@@ -44,7 +44,7 @@
           <?php
             if (isset($_POST["submitted"])) {
               $result = AuthController::authorize($_POST['password'], $_POST['username']);
-              
+              //var_dump($result['result']);
               if($result['result']){
                 $cookie_xpire = cookie_xpire;
                 $userHash = HashGenerator::generateHash(16);
@@ -55,8 +55,9 @@
                 }else{
                   setcookie("userHash", $userHash);
                 }
-                var_dump($_SESSION["returnUrl"]);
-                Router::redirect($_SESSION["returnUrl"]);
+                $returnUrl = $_SESSION['returnUrl'] === NULL ? "/?view=userListView" : $_SESSION['returnUrl'];
+
+                Router::redirect($returnUrl);
               }else{
                 echo "<p style='color: red;'>".$result["message"]."</p>"; 
               }

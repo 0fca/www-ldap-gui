@@ -19,7 +19,7 @@
         Router::redirect("/?view=LoginView");
     }
 ?>
-<form action="<?php print $_SERVER['PHP_SELF']; ?>" name="listForm" method="post">
+<form name="listForm" method="post">
             <div class="container">  
             <input type='search' id='searchinput' oninput="filter();"/>
                 <table id="userTable">

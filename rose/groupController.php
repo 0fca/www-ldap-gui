@@ -47,11 +47,11 @@ include_once('models/userModel.php');
                     $entries = ldap_get_entries(self::$ldap_connection, $result);
 
                     for ($x=0; $x<count($entries); $x++){
-                        if (!empty($entries[$x]["cn"][0]) &&
+                        if (!empty($entries[$x]["ou"][0]) &&
                             !empty($entries[$x]["description"][0]) && !empty($entries[$x]["member"])){
 
-                            $group = new GroupModel($entries[$x]["cn"][0], $entries[$x]["description"][0], $entries[$x]["member"]);
-                            $ad_groups[$entries[$x]["cn"][0]] = $group;
+                            $group = new GroupModel($entries[$x]["ou"][0], $entries[$x]["description"][0], $entries[$x]["member"]);
+                            $ad_groups[$entries[$x]["ou"][0]] = $group;
                         }
                     }
                     
@@ -74,10 +74,10 @@ include_once('models/userModel.php');
         static public function editGroup($oldModel, $model){
             self::prepareConnection();
             $entry = self::prepareEntries($model);
-            var_dump('ou='.$oldModel->getName().','.gdn);
-            var_dump($entry);
+            //var_dump('ou='.$oldModel->getName().','.gdn);
+            //var_dump($entry);
 
-            $retVal = ldap_mod_replace(self::$ldap_connection, 'ou='.$oldModel->getName().','.gdn, $entry) ? A101: '<p class="errMsg">'.A401.'</p>';
+            $retVal = ldap_mod_replace(self::$ldap_connection, 'ou='.$oldModel->getName().','.gdn, $entry) ? A101 : '<p class="errMsg">'.A401.'</p>';
             self::closeConnection();
             return $retVal;
         }

@@ -59,9 +59,11 @@
                     }
                     echo AccountUserController::editUserData($newModel, $model);
                 }else{
+                    $hashed = EditHelper::hashPassword($_POST['newPassword']);
+                    $newModel->setPassHash($hashed);
                     echo AccountUserController::addUser($newModel);
                 }
-                Router::redirect("/?view=groupListView");
+                Router::redirect("/?view=userListView");
             }else{
                 echo '<p class="errMsg">'.I100.'</p>';
             }

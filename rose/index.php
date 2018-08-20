@@ -41,7 +41,9 @@
                     <li>
                         <button class="navbutton" type="submit" name="view" value="aboutView">O aplikacji</button>
                     </li>
-                    
+                    <li>
+                        <button class="navbutton" type="submit" name="view" value="helpView">Pomoc</button>
+                    </li>
                 </ul>
                 <p class="userText"><?php echo $model === NULL ? "" : "Zalogowano jako ".$model->getUserName();?></p>
                 <button class="navbutton" type="submit" name="view" value="LoginView"><?php echo !$isAuthorized ? "Zaloguj" : "Wyloguj"; ?></button>
